@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Instructor Login</title>
+<!-- - - - - SET UP FOR ANGULAR - - - -->
+<!-- - - - - - SET UP FOR MATERIALIZE - - - -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+    <script>
+
+    var myApp = angular.module('myApp', ['ngRoute']);
+
+    myApp.config(function ($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'static/partials/info.html'
+            })
+            .when('/students', {
+                templateUrl: 'static/partials/students.html'
+            })            
+            .when('/instructor', {
+                templateUrl: 'static/partials/instructors.html'
+            })
+            .when('/apply', {
+                templateUrl: 'static/partials/apply.html'
+            })
+            .when('/stripe', {
+                templateUrl: 'static/partials/payment.html'
+            })
+            .otherwise({
+                redirectTo: '/'         
+            }) 
+    })
+    myApp.factory('applyFactory', function($http) {
+        var factory = {};
+
+        factory.applyIndex = function (callback) {
+            $http.get('/applyIndex').success(function(output) {
+                applicants = output;
+                console.log(applicants);
+            })
+        }
+        factory.createApplicant = function (data, callback) {
+            console.log('hi helloo');
+            $http.post('/createApplicant', data).success( function (applicant) {
+                callback(applicant);
+            })
+        }
+        return factory;
+    })
+    myApp.factory('paymentFactory', function($http) {
+        var factory = {};
+        factory.paymentIndex = function (callback) { 
+            $http.get('/paymentIndex').success(function(output) {
+                payments = output;
+                console.log(output, "index factory");
+                callback(payments);
+            })
+        }
+        factory.getPayment = function (data, callback) {
+            $http.post('/getPayment', data).success(function (payment) {
+                callback(payment);
+            })
+        }
+        factory.removeData = function (callback) {
+            $http.post('/removeData').success(function (payment) {
+                callback(payment);
+            })
+        }
+        return factory;
+    })
+    myApp.controller('paymentController', function ($scope, paymentFactory) {
+        paymentFactory.paymentIndex (function (data) {
+            $scope.payments = data;
+        })
+        $scope.getPayment = function () {
+            var payment = {
+                payment: $scope.newPayment.payment
+            }
+            console.log(payment, "payment in front");
+            paymentFactory.getPayment (payment, function ()  {
+                paymentFactory.paymentIndex (function (data) {
+                    console.log(data, "before scope end");
+                    $scope.newPayment.payment = ''
+                    $scope.payments = data;
+                })
+            })
+        }
+        $scope.removeData = function () {
+            paymentFactory.removeData (function () {
+                paymentFactory.paymentIndex (function (data) {
+                    console.log('remove scope');
+                    $scope.payments = data;
+                })
+            })
+        }
+    })
+    myApp.controller('applyController', function ($scope, applyFactory) {
+        applyFactory.applyIndex (function (data) {
+            $scope.applicants = data;
+        })
+        $scope.apply = function () {
+            var applicant = {
+                first_name: $scope.newApplicant.first_name,
+                last_name: $scope.newApplicant.last_name,
+                address1: $scope.newApplicant.address1,
+                address2: $scope.newApplicant.address2,
+                city: $scope.newApplicant.city,
+                state: $scope.newApplicant.state,
+                zip: $scope.newApplicant.zip,
+                phone: $scope.newApplicant.phone,
+                email: $scope.newApplicant.email,
+                password: $scope.newApplicant.password,
+                bday: $scope.newApplicant.bday,
+                class_type: $scope.newApplicant.class_type,
+                class_description: $scope.newApplicant.class_description,
+                certified_yes: $scope.newApplicant.certified_yes,
+                certified_no: $scope.newApplicant.certified_no,
+                date_certified: $scope.newApplicant.date_certified,
+                cert_type: $scope.newApplicant.cert_type,
+                training_school: $scope.newApplicant.training_school,
+                currently_teaching_yes: $scope.newApplicant.currently_teaching_yes,
+                currently_teaching_no: $scope.newApplicant.currently_teaching_no,
+                time_teaching: $scope.newApplicant.time_teaching,
+                experience: $scope.newApplicant.experience,
+                references: $scope.newApplicant.references
+            }
+            applyFactory.createApplicant (applicant, function (){
+                console.log(applicant, 'front end');
+                applyFactory.applyIndex (function (data) {
+                    $scope.newApplicant = '';
+                    $scope.applicants = data;
+                })
+            })
+        }
+    })
+    </script>
+    <style type="text/css">
+    	h3, h5{
+    		font: papercraft;
+    	}
+    </style>
+</head>
+<body ng-app='myApp'>
+
+<nav>
+  <div class="nav-wrapper #90a4ae blue-grey lighten-2">
+    <a href="#/" class="brand-logo">ifART</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#/info">Home</a></li>
+      <li><a href="#/students">Student Login</a></li>
+      <li><a href="#/instructor">Instructor Login</a></li>
+      <li><a href="#/apply">Teach</a></li>
+      <li><a href="#/stripe">stripe</a></li>
+    </ul>
+  </div>
+</nav>
+        <div id='view_box' ng-view=''></div>
+
+</body>
+</html>
