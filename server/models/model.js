@@ -29,6 +29,15 @@ var PaymentSchema = new mongoose.Schema ({
     payment: Number
 })
 
+var StudentSchema = new mongoose.Schema ({
+    firstName: String,
+    lastName: String,
+    email: String,
+    password: String
+})
+
+var student = mongoose.model('student', StudentSchema);
+
 var payment = mongoose.model('payment', PaymentSchema);
 
 var applicant = mongoose.model('applicant', ApplicantSchema);

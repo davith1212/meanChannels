@@ -2,12 +2,11 @@
 <html>
 <head>
 	<title>Instructor Login</title>
-<!-- - - - - SET UP FOR ANGULAR - - - -->
-<!-- - - - - - SET UP FOR MATERIALIZE - - - -->
+
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
     <script>
@@ -30,6 +29,9 @@
             })
             .when('/stripe', {
                 templateUrl: 'static/partials/payment.html'
+            })
+            .when('/studentHome', {
+                templateUrl: 'static/partials/student_Home.html'
             })
             .otherwise({
                 redirectTo: '/'         
@@ -69,6 +71,27 @@
         factory.removeData = function (callback) {
             $http.post('/removeData').success(function (payment) {
                 callback(payment);
+            })
+        }
+        return factory;
+    })
+    myApp.factory('studentFactory', function($http) {
+        var factory = {};
+
+        factory.studentIndex = function (callback) {
+            $http.get('/studentIndex').success(function(output) {
+                students = output;
+                callback(students);
+            })
+        }
+        factory.createStudent = function (data, callback) {
+            $http.post('/createStudent', data).success(function (student) {
+                callback(student);
+            })
+        }
+        factory.removeStudent = function (callback) {
+            $http.post('/removePost').success(function(student) {
+                callback(student);
             })
         }
         return factory;
@@ -138,6 +161,32 @@
             })
         }
     })
+    myApp.controller('studentController', function ($scope, studentFactory) {
+        studentFactory.studentIndex (function (data) {
+            $scope.students = data;
+        })
+        $scope.createStudent = function () {
+            var student = {
+                firstName: $scope.student.firstName,
+                lastName: $scope.student.lastName,
+                email: $scope.student.email,
+                password: $scope.student.password
+            }
+            studentFactory.createStudent (student, function () {
+                studentFactory.studentIndex (function (data) {
+                    $scope.student ='',
+                    $scope.students = data;
+                })
+            })
+        }
+        $scope.removeStudent = function (student) {
+            studentFactory.removeStudent (student, function () {
+                studentFactory.studentIndex (function (data) {
+                    $scope.students = data;
+                })
+            })
+        }
+    })
     </script>
     <style type="text/css">
     	h3, h5{
@@ -146,20 +195,19 @@
     </style>
 </head>
 <body ng-app='myApp'>
-
-<nav>
-  <div class="nav-wrapper #90a4ae blue-grey lighten-2">
-    <a href="#/" class="brand-logo">ifART</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="#/info">Home</a></li>
-      <li><a href="#/students">Student Login</a></li>
-      <li><a href="#/instructor">Instructor Login</a></li>
-      <li><a href="#/apply">Teach</a></li>
-      <li><a href="#/stripe">stripe</a></li>
-    </ul>
-  </div>
-</nav>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#/">ifART</a>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/info">Home</a></li>
+        <li><a href="#/students">Student Login</a></li>
+        <li><a href="#/instructor">Instructor Login</a></li>
+        <li><a href="#/apply">Teach</a></li>
+        <li><a href="#/stripe">stripe</a></li>
+        <li><a href="#/studentHome">Student Home</a></li>
+      </ul>
+    </div>
+</nav>    
         <div id='view_box' ng-view=''></div>
-
 </body>
 </html>

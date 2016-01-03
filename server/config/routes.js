@@ -16,4 +16,13 @@ module.exports = function (app) {
 	app.post('/removeData', function (req, res) {
 		applicants.removeData (req, res);
 	})
+	app.get('/studentIndex', function (req, res) {
+		applicants.studentIndex (req, res);
+	})
+	app.post('/createStudent', function (req, res) {
+		applicants.createStudent (req, res);
+	})
+	app.post('/removeStudent', function (req, res) {
+		applicants.removeStudent (req, res); 		
+	})
 }

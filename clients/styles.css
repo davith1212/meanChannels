@@ -5,13 +5,13 @@
 body {
 	background-image: url('http://www.cool-backgrounds.org/wallpapers/subtle_background-852x480.jpg');
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: 200%;
 }
 	#view_box {
 
 	}
 #apply_photo {
-	margin: 30px 0 0 30px;
+	margin: 40px 0 0 30px;
 	height: 200px;
 	border: 2px solid black;
 	background-size: 325px 200px;
@@ -30,7 +30,7 @@ body {
 	background-image: url('http://merfo.net/wp-content/gallery/fitness-hd-wallpapers/5.jpg');
 }
 	.info_btn {
-		margin: 30px 270px 0 370px;
+		margin: 20px 270px 0 370px;
 	}
 	.instr_btn {
 		margin: 30px 0 0 0;
@@ -44,7 +44,7 @@ h5 {
 }
 .box {
 	width: 300px;
-	height: 300px;
+	height: 320px;
 	background-color: white;
 	opacity: 0.85;
 	border-radius: 8px;
@@ -62,7 +62,10 @@ h5 {
 		border-radius: 8px;
 	}
 	.pay_select {
-		margin: 15px 0 20px 0;
+		margin: 10px 0 20px 0;
+	}
+	#pay_btn {
+		margin: 20px 0 0 0;
 	}
 .paybox {
 	margin: 0 auto;
@@ -109,4 +112,23 @@ h5 {
 	text-align: center;
 	padding: 10px 0;
 	margin: 0 0 20px 45px;
+}
+/*-------------------student home-----------------------------*/
+.photo_box {
+	border: 2px solid black;
+	height: 300px;
+}
+.interest_box {
+	border: 2px solid black;
+	height: 215px;
+	margin: 50px 0 0 0;
+}
+span {
+	padding: 0 0 0 13px;
+}
+.student {
+	background-color: white;
+	opacity: 0.85; 
+	border-radius: 8px;
+	padding: 20px 20px 30px 30px;
 }

@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var applicants = mongoose.model('applicant');
 var Payments = mongoose.model('payment');
+var Students = mongoose.model('student');
 
 module.exports = (function () {
 
@@ -86,6 +87,48 @@ module.exports = (function () {
 					console.log('removed all');
 					res.json(200);
 				}
+			})
+		},
+		studentIndex: function (req, res) {
+			Students.find({}, function (err, output) {
+				if (err) {
+					console.log(err);
+				}
+				else {
+					console.log('Student found');
+					res.json(output);
+				}
+			})
+		},
+		createStudent: function (req, res) {
+			var student = new Students({
+				firstName: req.body.firstName,
+				lastName: req.body.lastName,
+				email: req.body.email,
+				password: req.body.password
+			})
+			student.save(function(err) {
+				if(err) {
+					console.log(err);
+				}
+				else {
+					console.log('Student was added!');
+					res.json(200);
+				}
+			})
+		},
+		removeStudent: function (req, res) {
+			Student.findOne({_id: req.body._id}, function (err, student) {
+				Student.remove({_id: req.body._id}, function (err) {
+					console.log(req.body);
+					if(err) {
+						console.log(err);
+					}
+					else {
+						console.log('Student Removed!');
+						res.json(200);
+					}
+				})
 			})
 		}
 	}
