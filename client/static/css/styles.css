@@ -1,0 +1,134 @@
+
+.nav-wrapper {
+	padding: 0 15px;
+}
+body {
+	background-image: url('http://www.cool-backgrounds.org/wallpapers/subtle_background-852x480.jpg');
+	background-repeat: no-repeat;
+	background-size: 200%;
+}
+	#view_box {
+
+	}
+#apply_photo {
+	margin: 40px 0 0 30px;
+	height: 200px;
+	border: 2px solid black;
+	background-size: 325px 200px;
+	background-image: url('http://yogahobby.com/wp-content/uploads/2015/08/Is-yoga-for-beginners-Right-for-Me-750x422.jpg');
+}
+.apply_btn {
+	margin: 0 0 0 120px;
+}
+#view_box {
+	margin: 60px 0 0 0;
+}
+.info {
+	border: 2px solid black;
+	height: 450px;
+	background-size: 1000px 450px;
+	background-image: url('http://merfo.net/wp-content/gallery/fitness-hd-wallpapers/5.jpg');
+}
+	.info_btn {
+		margin: 20px 270px 0 370px;
+	}
+	.instr_btn {
+		margin: 30px 0 0 0;
+	}
+.info_white {
+	color: white;
+	padding: 0 0 0 20px;
+}
+h5 {
+	width: 570px;
+}
+.box {
+	width: 300px;
+	height: 320px;
+	background-color: white;
+	opacity: 0.85;
+	border-radius: 8px;
+	padding: 50px 0 0 50px;
+	line-height: 35px;
+}
+	#stripe_btn {
+		margin: 40px 0 0 40px;
+	}
+	#pay {
+		margin: 100px 0 0 60px;
+		padding: 20px 0 20px 90px;
+		background-color: white;
+		opacity: 0.85;
+		border-radius: 8px;
+	}
+	.pay_select {
+		margin: 10px 0 20px 0;
+	}
+	#pay_btn {
+		margin: 20px 0 0 0;
+	}
+.paybox {
+	margin: 0 auto;
+}
+#login {
+	background-color: white;
+	border-radius: 8px;
+	padding: 10px 0 30px 40px;
+	opacity: 0.85;
+}
+#apply {
+	background-color: white;
+	border-radius: 8px;
+	padding: 10px 30px 30px 40px;
+	opacity: 0.85;
+	margin: 0 0 0 40px;
+}
+#apply_instructor {
+	background-color: white;
+	border-radius: 8px;
+	padding: 10px 0 30px 30px;
+	opacity: 0.85;
+	margin: 0 0 0 30px;
+}
+#personal {
+	background-color: white;
+	border-radius: 8px;
+	padding: 0px 0 0px 30px;
+	opacity: 0.85;
+	margin: 0 20px 0 0px;
+}
+#teaching_info {
+	background-color: white;
+	border-radius: 8px;
+	padding: 20px 0 0px 30px;
+	opacity: 0.85;
+	margin: 0 0px 0 0px;
+}	
+.total {
+	width: 200px;
+	background-color: white;
+	border-radius: 8px;
+	opacity: 0.85; 
+	text-align: center;
+	padding: 10px 0;
+	margin: 0 0 20px 45px;
+}
+/*-------------------student home-----------------------------*/
+.photo_box {
+	border: 2px solid black;
+	height: 300px;
+}
+.interest_box {
+	border: 2px solid black;
+	height: 215px;
+	margin: 50px 0 0 0;
+}
+span {
+	padding: 0 0 0 13px;
+}
+.student {
+	background-color: white;
+	opacity: 0.85; 
+	border-radius: 8px;
+	padding: 20px 20px 30px 30px;
+}
