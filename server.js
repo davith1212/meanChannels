@@ -61,7 +61,7 @@ easyrtc.events.on("roomJoin", function(connectionObj, roomName, roomParameter, c
 
 
 // Start easyrtc server
-var rtc = easyrtc.listen(httpApp, socketServer, null, function(err, rtcRef) {
+var rtc = easyrtc.listen(app, socketServer, null, function(err, rtcRef) {
     console.log("Initiated");
 
     rtcRef.events.on("roomCreate", function(appObj, creatorConnectionObj, roomName, roomOptions, callback) {
