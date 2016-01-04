@@ -1,0 +1,20 @@
+h1{
+		font-weight: lighter;
+		font-style: italic;
+		font-size: 95px;
+	}
+	#itness{
+		font-size: 20px;
+		margin: 0px;
+		font-weight: bold;
+	}
+	h3, h2{
+		font-weight: lighter;
+		font-style: italic;
+	}
+	h3{
+		font-size: 33px;
+	}
+	#loginBtns{
+		margin-top: 50px;
+	}

@@ -1,0 +1,13 @@
+h3{
+		font-weight: lighter;
+		margin-left: -10px;
+	}
+	#login, #apply{
+		padding: 20px 10px 40px 60px;
+	}
+	button{
+		margin-left: 70px;
+	}
+	#regH3{
+		margin-left: -20px;
+	}

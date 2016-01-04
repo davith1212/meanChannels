@@ -1,228 +1,238 @@
-<div class="container-fluid">
-	<h3>Apply now to join the ifArt team!</h3>
-	<p>Take the first step by completing the following application, and we will get in touch with you in 5-7 days.</p>
-	<div class="row">
-		<form ng-controller='instructorController'>
-		<div id="personal" class="col-md-4 col-md-offset-1">
-			<div class="row">
-			    <div class="form-group col-md-10">
-			       <label for="first_name">First Name</label>
-			       <input ng-model="newInstructor.first_name" type="text" class="form-control">
-			    </div>
-			</div>
-			<div class="row">
-			    <div class="form-group col-md-10">
-			       <label for="last_name">Last Name</label>
-			       <input ng-model="newInstructor.last_name" type="text" class="form-control">
-			    </div>
-			</div>
-			<div class="row">
-			    <div class="form-group col-md-10">
-			       <label for="address1">Address 1</label>
-			       <input ng-model="newInstructor.address1" type="text" class="form-control">
-			    </div>
-			</div>
-			<div class="row">
-			    <div class="form-group col-md-10">
-			       <label for="address2">Address 2</label>
-			       <input ng-model="newInstructor.address2" type="text" placeholder="Suite, Apt, Bldg, etc." class="form-control">
-			    </div>
-			</div>
-			<div class="row">
-			    <div class="form-group col-md-5">
-			       <label for="city">City</label>
-			       <input ng-model="newInstructor.city" type="text" class="form-control">
-			  	</div>
-			  	<div class="form-group col-md-4">
-					<label>State</label>
-			        <select ng-model='newInstructor.state' class="form-control">
-				    	<option value="" disabled selected>Choose State</option>
-			       		<optgroup label="US States">
-					        <option value="AL">AL</option>
-							<option value="AK">AK</option>
-							<option value="AZ">AZ</option>
-							<option value="AR">AR</option>
-							<option value="CA">CA</option>
-							<option value="CO">CO</option>
-							<option value="CT">CT</option>
-							<option value="DE">DE</option>
-							<option value="DC">DC</option>
-							<option value="FL">FL</option>
-							<option value="GA">GA</option>
-							<option value="HI">HI</option>
-							<option value="ID">ID</option>
-							<option value="IL">IL</option>
-							<option value="IN">IN</option>
-							<option value="IA">IA</option>
-							<option value="KS">KS</option>
-							<option value="KY">KY</option>
-							<option value="LA">LA</option>
-							<option value="ME">ME</option>
-							<option value="MD">MD</option>
-							<option value="MA">MA</option>
-							<option value="MI">MI</option>
-							<option value="MN">MN</option>
-							<option value="MS">MS</option>
-							<option value="MO">MO</option>
-							<option value="MT">MT</option>
-							<option value="NE">NE</option>
-							<option value="NV">NV</option>
-							<option value="NH">NH</option>
-							<option value="NJ">NJ</option>
-							<option value="NM">NM</option>
-							<option value="NY">NY</option>
-							<option value="NC">NC</option>
-							<option value="ND">ND</option>
-							<option value="OH">OH</option>
-							<option value="OK">OK</option>
-							<option value="OR">OR</option>
-							<option value="PA">PA</option>
-							<option value="RI">RI</option>
-							<option value="SC">SC</option>
-							<option value="SD">SD</option>
-							<option value="TN">TN</option>
-							<option value="TX">TX</option>
-							<option value="UT">UT</option>
-							<option value="VT">VT</option>
-							<option value="VA">VA</option>
-							<option value="WA">WA</option>
-							<option value="WV">WV</option>
-							<option value="WI">WI</option>
-							<option value="WY">WY</option>
-						</optgroup>
-						<optgroup label="US Territories">
-						  	<option value="AS">American Samoa</option>
-							<option value="GU">Guam</option>
-							<option value="MP">Northern Mariana Islands</option>
-							<option value="PR">Puerto Rico</option>
-							<option value="UM">United States Minor Outlying Islands</option>
-							<option value="VI">Virgin Islands</option>
-						</optgroup>
-					</select>
-				  </div>				
-			</div>
-		    <div class="row">
-			    <div class="form-group col-md-6">
-			       <label for="zip">Zip Code</label>
-			       <input ng-model="newInstructor.zip" type="number" class="form-control">
-			    </div>
-		    </div>
-		    <div class="row">
-			    <div class="form-group col-md-10">
-			       <label for="phone">Phone Number</label>
-			       <input ng-model="newInstructor.phone" type="text" class="form-control">
-			    </div>
-		    </div>
-		    <div class="row">
-			    <div class="form-group col-md-10">
-			       <label for="email">Email</label>
-			       <input ng-model="newInstructor.email" type="email" class="form-control">
-			    </div>
-		    </div>
-		    <div class="row">
-			    <div class="form-group col-md-10">
-			       <label for="password">Password</label>
-			       <input ng-model="newInstructor.password" type="password" class="form-control">
-			    </div>
-		    </div>
-		    <div class="row">
-			    <div class="form-group col-md-10">
-			       <label for="confirm_password">Confirm Password</label>
-			       <input id="confirm_password" type="password" class="form-control">
-			    </div>
-		    </div>
-		    <div class="row">
-			    <div class="form-group col-md-10">
-			       <label for="bday">Birthday</label>
-			       <input ng-model="newInstructor.bday" type="date" class="datepicker form-control">
-			    </div>
-		    </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.datepicker').pickadate({
+			    selectMonths: true, 
+			    selectYears: 200 
+			});
+	})
+</script>
+<div class="container">
+	<div class="row" ng-controller='instructorController'>
+		<div class="row">
+			<h3>Apply now to join the <span>i.f ART</span> team!</h3>
+			<p>Take the first step by completing the following application, and we will get in touch with you in 5-7 days.</p>
 		</div>
-<!-- - - - - - TEACHING/CLASS INFO - - - - - - - -->
-		<div id="teaching_info" class="col-md-5">
-			<div class="row">
-			    <div class="form-group col-md-10">
-			       <label for="style">Teaching Style</label>
-			       <select class="form-control" ng-model='newInstructor.class_type'>
-			       		<option value="" disabled selected>Choose Style</option>
-			       		<option value="bootcamp">Bootcamp</option>
-			       		<option value="pilates">Pilates</option>
-			       		<option value="yoga">Yoga</option>
-			       		<option value="aerobics">Aerobics</option>
-			       		<option value="guided_meditation">Guided Meditation</option>
-			       		<option value="nutrition">Nutrition</option>
-			       </select>
-			    </div>
-			</div>
-			<div id="class_type_description">
-			    <div class="row">
-				    <div class="form-group col-md-10">
-				       <label id="class_label" for="class_description">Classes</label>
-				       <textarea ng-model="newInstructor.class_description" class="form-control" rows="3" placeholder="class type and description"></textarea>
-				    </div>
-			    </div>
-			    <div class="row">
-				    <div class="form-group col-md-10">
-				    	<p>Certified?</p>
-				       	<label for="certified_yes">Yes</label>
-				       	<input ng-model="newInstructor.certified_yes" id="certified_yes" type="checkbox">
-				       	<label for="certified_no">No</label>
-				       	<input ng-model="newInstructor.certified_no" id="certified_no" type="checkbox">
-				    </div>
-			    </div>
-	<!-- - - - - - - SHOWS IF CERTIFIED CHECKED YES - - - - - - - -->
-			    <div id="certified">
-				    <div class="row">
-				    	<div class="form-group col-md-10">
-				    		<label for="dateDertified">Date certification received</label>
-				    		<input ng-model="newInstructor.dateCertified" type="date" class="datepicker form-control">
-				    	</div>
-				    </div>
-				    <div class="row">
-				    	<div class="form-group col-md-10">
-				    		<label for="cert_type">Certification Type</label>
-				    		<input ng-model="newInstructor.cert_type" type="text" class="form-control">
-				    	</div>
-				    </div>
-				    <div class="row">
-				    	<div class="form-group col-md-10">
-				    		<label for="training_school">School or Teacher Training attended</label>
-				    		<input ng-model="newInstructor.training_school" type="text" class="form-control">
-				    	</div>
+		<div id="main" class="row z-depth-1 hoverable">
+			<form class="col l12">
+			<div id="personal" class="col l5">
+				<div class="row">
+				    <div class="input-field col l10">
+				       <input id="first_name" ng-model="newInstructor.first_name" type="text">
+				       <label for="first_name">First Name</label>
 				    </div>
 				</div>
-	<!-- - - - - - - CERTIFIED ONLY END - - - - - - - -->
+				<div class="row">
+				    <div class="input-field col l10">
+				       <input id="last_name" ng-model="newInstructor.last_name" type="text">
+				       <label for="last_name">Last Name</label>
+				    </div>
+				</div>
+				<div class="row">
+				    <div class="input-field col l10">
+				       <input id="address1" ng-model="newInstructor.address1" type="text">
+				       <label for="address1">Address 1</label>
+				    </div>
+				</div>
+				<div class="row">
+				    <div class="input-field col l10">
+				       <input id="address2" ng-model="newInstructor.address2" type="text">
+				       <label for="address2">Address 2</label>
+				    </div>
+				</div>
+				<div class="row">
+				    <div class="input-field col l7">
+				       <input id="city" ng-model="newInstructor.city" type="text" class="form-control">
+				       <label for="city">City</label>
+				  	</div>
+					<label>State</label>
+				  	<div class="input-field col l5">
+				        <select ng-model='newInstructor.state' class="browser-default">
+					    	<option value="" disabled selected>Choose State</option>
+				       		<optgroup label="US States">
+						        <option value="AL">AL</option>
+								<option value="AK">AK</option>
+								<option value="AZ">AZ</option>
+								<option value="AR">AR</option>
+								<option value="CA">CA</option>
+								<option value="CO">CO</option>
+								<option value="CT">CT</option>
+								<option value="DE">DE</option>
+								<option value="DC">DC</option>
+								<option value="FL">FL</option>
+								<option value="GA">GA</option>
+								<option value="HI">HI</option>
+								<option value="ID">ID</option>
+								<option value="IL">IL</option>
+								<option value="IN">IN</option>
+								<option value="IA">IA</option>
+								<option value="KS">KS</option>
+								<option value="KY">KY</option>
+								<option value="LA">LA</option>
+								<option value="ME">ME</option>
+								<option value="MD">MD</option>
+								<option value="MA">MA</option>
+								<option value="MI">MI</option>
+								<option value="MN">MN</option>
+								<option value="MS">MS</option>
+								<option value="MO">MO</option>
+								<option value="MT">MT</option>
+								<option value="NE">NE</option>
+								<option value="NV">NV</option>
+								<option value="NH">NH</option>
+								<option value="NJ">NJ</option>
+								<option value="NM">NM</option>
+								<option value="NY">NY</option>
+								<option value="NC">NC</option>
+								<option value="ND">ND</option>
+								<option value="OH">OH</option>
+								<option value="OK">OK</option>
+								<option value="OR">OR</option>
+								<option value="PA">PA</option>
+								<option value="RI">RI</option>
+								<option value="SC">SC</option>
+								<option value="SD">SD</option>
+								<option value="TN">TN</option>
+								<option value="TX">TX</option>
+								<option value="UT">UT</option>
+								<option value="VT">VT</option>
+								<option value="VA">VA</option>
+								<option value="WA">WA</option>
+								<option value="WV">WV</option>
+								<option value="WI">WI</option>
+								<option value="WY">WY</option>
+							</optgroup>
+							<optgroup label="US Territories">
+							  	<option value="AS">American Samoa</option>
+								<option value="GU">Guam</option>
+								<option value="MP">Northern Mariana Islands</option>
+								<option value="PR">Puerto Rico</option>
+								<option value="UM">United States Minor Outlying Islands</option>
+								<option value="VI">Virgin Islands</option>
+							</optgroup>
+						</select>
+					  </div>				
+				</div>
 			    <div class="row">
-			    	<div class="form-group col-md-10">
-			    		<p>Currently teaching?</p>
-			    		<label for="currently_teaching_yes">Yes</label>
-			    		<input ng-model="newInstructor.currently_teaching_yes" id="currently_teaching_yes" type="checkbox">
-			    		<label for="currently_teaching_no">No</label>
-			    		<input ng-model="newInstructor.currently_teaching_no" id="currently_teaching_no" type="checkbox">
-			    	</div>
+				    <div class="input-field col l6">
+				       <input id="zip" ng-model="newInstructor.zip" type="number" class="form-control">
+				       <label for="zip">Zip Code</label>
+				    </div>
 			    </div>
 			    <div class="row">
-			    	<div class="form-group col-md-10">
-			    		<label for="time_teaching">How long have you been teaching?</label>
-			    		<input ng-model="newInstructor.time_teaching" type="text" class="form-control">
-			    	</div>
+				    <div class="input-field col l10">
+				       <input id="phone" ng-model="newInstructor.phone" type="text" class="form-control">
+				       <label for="phone">Phone Number</label>
+				    </div>
 			    </div>
 			    <div class="row">
-			    	<div class="form-group col-md-10">
-			    		<label for="experience">Teaching Experience</label>
-			    		<textarea ng-model="newInstructor.experience" class="form-control" rows="3"></textarea>
-			    	</div>
+				    <div class="input-field col l10">
+				       <input id="email" ng-model="newInstructor.email" type="email" class="form-control">
+				       <label for="email">Email</label>
+				    </div>
 			    </div>
 			    <div class="row">
-			    	<div class="form-group col-md-10">
-			    		<label for="references">References</label>
-			    		<textarea ng-model="newInstructor.references" class="form-control" rows="3" placeholder="name, phone number, and relation"></textarea>
-			    	</div>
+				    <div class="input-field col l10">
+				       <input id="password" ng-model="newInstructor.password" type="password" class="form-control">
+				       <label for="password">Password</label>
+				    </div>
+			    </div>
+			    <div class="row">
+				    <div class="input-field col l10">
+				       <input id="confirm_password" type="password" class="form-control">
+				       <label for="confirm_password">Confirm Password</label>
+				    </div>
+			    </div>
+			    <div class="row">
+				    <div class="input-field col l10">
+				       <input id="bday" ng-model="newInstructor.bday" type="date" class="datepicker form-control">
+				       <label for="bday">Birthday</label>
+				    </div>
 			    </div>
 			</div>
+	<!-- - - - - - TEACHING/CLASS INFO - - - - - - - -->
+			<div id="teaching_info" class="col l6 offset-l1">
+			       <label class="col l12">Teaching Style</label>
+			       <div class="row">
+					    <div class="input-field col l10">
+					       <select class="browser-default" ng-model='newInstructor.class_type'>
+					       		<option value="" disabled selected>Choose Style</option>
+					       		<option value="bootcamp">Bootcamp</option>
+					       		<option value="pilates">Pilates</option>
+					       		<option value="yoga">Yoga</option>
+					       		<option value="aerobics">Aerobics</option>
+					       		<option value="guided_meditation">Guided Meditation</option>
+					       		<option value="nutrition">Nutrition</option>
+					       </select>
+					    </div>
+					</div>
+				    <div class="row">
+					    <div input-field id="class_type_desc" class="col l10">
+					       <label for="class_description">Classes</label>
+					       <textarea id="class_description" ng-model="newInstructor.class_description" class="materialize-textarea" rows="3" placeholder="class type and description"></textarea>
+					    </div>
+				    </div>
+					<p>Certified?</p>
+				    <div class="row">
+					    <div class="input-field col l10">
+					       	<input id="certified_yes" ng-model="newInstructor.certified_yes" id="certified_yes" type="checkbox">
+					       	<label for="certified_yes">Yes</label>
+					       	<input id="certified_no" ng-model="newInstructor.certified_no" id="certified_no" type="checkbox">
+					       	<label for="certified_no">No</label>
+					    </div>
+				    </div>
+		<!-- - - - - - - SHOWS IF CERTIFIED CHECKED YES - - - - - - - -->
+				    <div id="certified">
+					    <div class="row">
+					    	<div class="input-field col l10">
+					    		<input id="dateCertified" ng-model="newInstructor.dateCertified" type="date" class="datepicker">
+					    		<label for="dateCertified">Date certification received</label>
+					    	</div>
+					    </div>
+					    <div class="row">
+					    	<div class="input-field col l10">
+					    		<input id="cert_type" ng-model="newInstructor.cert_type" type="text" class="form-control">
+					    		<label for="cert_type">Certification Type</label>
+					    	</div>
+					    </div>
+					    <div class="row">
+					    	<div class="input-field col l10">
+					    		<input id="training_school" ng-model="newInstructor.training_school" type="text" class="form-control">
+					    		<label for="training_school">School or Teacher Training attended</label>
+					    	</div>
+					    </div>
+					</div>
+		<!-- - - - - - - CERTIFIED ONLY END - - - - - - - -->
+		    		<p>Currently teaching?</p>
+				    <div class="row">
+				    	<div class="input-field col l10">
+				    		<input id="currently_teaching_yes" ng-model="newInstructor.currently_teaching_yes" id="currently_teaching_yes" type="checkbox">
+				    		<label for="currently_teaching_yes">Yes</label>
+				    		<input id="currently_teaching_no" ng-model="newInstructor.currently_teaching_no" id="currently_teaching_no" type="checkbox">
+				    		<label for="currently_teaching_no">No</label>
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	<div class="input-field col l10">
+				    		<input ng-model="newInstructor.time_teaching" type="text" class="form-control">
+				    		<label for="time_teaching">How long have you been teaching?</label>
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	<div input-field class="col l10">
+				    		<label for="experience">Teaching Experience</label>
+				    		<textarea ng-model="newInstructor.experience" class="materialize-textarea" rows="3"></textarea>
+				    	</div>
+				    </div>
+				    <div class="row">
+				    	<div input-field class="col l10">
+				    		<label for="references">References</label>
+				    		<textarea ng-model="newInstructor.references" class="materialize-textarea" rows="3" placeholder="name, phone number, and relation"></textarea>
+				    	</div>
+				    </div>
+			</div>
+			<p class="col l2 offset-l9"><button type="submit" ng-click='createInstructor()' class="btn waves-effect waves-light orange lighten-1">Apply!!</button></p>
+			</form>
 		</div>
-		<p class="col-md-12"><button type="submit" ng-click='createInstructor()' class="btn-lg col-md-offset-8">Apply!!</button></p>
-		</form>
 	</div>
 </div>
 

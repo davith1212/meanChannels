@@ -1,33 +1,58 @@
 <div class="container">	
 	<div class="row" ng-controller='studentController'>
-		<div id="login" class="col m5">
+		<div id="login" class="col l5 grey lighten-4 z-depth-1 hoverable">
 			<h3>Student Login</h3>
 		    <form ng-submit='loginStudent(studentData)'>
 		    	<div ng-if='error.message'><span ng-bind='error.message'></span></div>
 		    	<div class="row">
-		        	<div class="input-field col m10 ">
+		        	<div class="input-field col l10">
 			          <input id="email" type="text" class="validate" ng-model='studentData.email'>
 			          <label for="email">Email</label>
 		        	</div>
 		      	</div>
 		      	<div class="row">
-		        	<div class="input-field col m10">
+		        	<div class="input-field col l10">
 			          <input id="password" type="password" class="validate" ng-model='studentData.password'>
 			          <label for="password">Password</label>
 		        	</div>
 		      	</div>
-		      	<button class="btn waves-effect waves-light #90a4ae blue-grey lighten-2" type="submit" name="action">Submit</button>
+		      	<button class="btn waves-effect waves-light orange lighten-1" type="submit" name="action">Submit</button>
 		    </form>
 		</div>
-		<div id="apply" class="col m6">
+		<div id="apply" class="col l6 offset-l1 grey lighten-4 z-depth-1 hoverable">
 			<form>
-				<h3>Register for Classes!</h3>
-				<p><input type="text" ng-model='newStudent.firstName' placeholder='First Name'></p>	
-				<p><input type="text" ng-model='newStudent.lastName' placeholder='Last Name'></p>	
-				<p><input type="text" ng-model='newStudent.email' placeholder='Email'></p>	
-				<p><input type="text" ng-model='newStudent.password' placeholder='Password'></p>	
-				<p><input type="text" ng-model='newStudent.confirm' placeholder='Password Confrim'></p>	
-				<button class="btn waves-effect apply_btn #90a4ae blue-grey lighten-2" ng-click='createStudent()'>Register Now!</button>
+				<h3 id="regH3">Register for Classes!</h3>
+				<div class="row">
+			        <div class="input-field col l10">
+				        <label for="firstName">First Name</label>
+						<input type="text" id="firstName" ng-model='newStudent.firstName'></p>
+					</div>
+				</div>	
+				<div class="row">
+			        <div class="input-field col l10">
+			        	<label for="lastName">Last Name</label>
+			        	<input type="text" id="lastName" ng-model='newStudent.lastName'>
+			        </div>
+			    </div>
+			    <div class="row">
+			        <div class="input-field col l10">
+			        	<label for="email">Email</label>
+						<input type="text" id="email" ng-model='newStudent.email'>
+					</div>
+				</div>
+				<div class="row">
+			        <div class="input-field col l10">
+				        <label for="password">Password</label>	
+						<input type="text" id="password" ng-model='newStudent.password'>
+					</div>
+				</div>
+				<div class="row">
+			        <div class="input-field col l10">
+			        	<label for="confirm">Confirm Password</label>
+						<input type="text" id="confirm" ng-model='newStudent.confirm'>	
+					</div>
+				</div>
+				<button class="btn waves-effect waves-light orange lighten-1" ng-click='createStudent()'>Register Now!</button>
 			</form>
 		</div>
 	</div>
