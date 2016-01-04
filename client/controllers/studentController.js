@@ -5,15 +5,15 @@ myApp.controller('studentController', function ($scope, studentFactory) {
             $scope.students = data;
         })
         $scope.createStudent = function () {
-            var student = {
-                firstName: $scope.student.firstName,
-                lastName: $scope.student.lastName,
-                email: $scope.student.email,
-                password: $scope.student.password
+            var newStudent = {
+                firstName: $scope.newStudent.firstName,
+                lastName: $scope.newStudent.lastName,
+                email: $scope.newStudent.email,
+                password: $scope.newStudent.password
             }
-            studentFactory.createStudent (student, function () {
+            studentFactory.createStudent (newStudent, function () {
                 studentFactory.studentIndex (function (data) {
-                    $scope.student ='',
+                    $scope.newStudent ={},
                     $scope.students = data;
                 })
             })
@@ -24,5 +24,20 @@ myApp.controller('studentController', function ($scope, studentFactory) {
                     $scope.students = data;
                 })
             })
+        }
+        $scope.loginStudent = function(input){
+            console.log('trying to login student with', input);
+            //call factory
+            studentFactory.loginStudent(input, function(response){
+                console.log(response);
+                if(response.err){
+                    console.log('there was an error!');
+                    $scope.error.message = response.err;
+                } else {
+                    console.log('no error, log them in');
+                    $location.url('/info');
+                }
+            })
+            $scope.studentData = {};
         }
     })

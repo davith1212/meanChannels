@@ -13,6 +13,22 @@ var myApp = angular.module('myApp');
                 callback(student);
             })
         }
+        factory.loginStudent = function(input, callback){
+            student = {};
+            error = {};
+            console.log('factory trying to log in with', input);
+            $http.post('/login', input).then(function(response){
+                console.log(response);
+                if(response.data.err){
+                    error.message = response.data.err;
+                    console.log('ERROR!', error);
+                    callback(response.data);
+                } else {
+                    student = response.data.data;
+                    callback(response.data.data);
+                }
+            })
+        }        
         factory.removeStudent = function (callback) {
             $http.post('/removePost').success(function(student) {
                 callback(student);
