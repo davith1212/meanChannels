@@ -3,6 +3,8 @@ var applicants = mongoose.model('applicant');
 var Payments = mongoose.model('payment');
 var Students = mongoose.model('student');
 var Classes = mongoose.model('class');
+var bcrypt = require('bcrypt');
+var salt = bcrypt.genSaltSync(10);
 
 module.exports = (function () {
 
@@ -102,13 +104,14 @@ module.exports = (function () {
 			})
 		},
 		createStudent: function (req, res) {
-			var student = new Students({
+			req.body.password = bcrypt.hashSync(req.body.password, salt);
+			var newStudent = new Students({
 				firstName: req.body.firstName,
 				lastName: req.body.lastName,
 				email: req.body.email,
 				password: req.body.password
 			})
-			student.save(function(err) {
+			newStudent.save(function(err) {
 				if(err) {
 					console.log(err);
 				}
