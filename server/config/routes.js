@@ -34,4 +34,36 @@ module.exports = function (app) {
 	app.post('/removeClass', function (req, res) {
 		applicants.removeClass (req, res);
 	})
+
+	//local auth route
+	app.post('/login', function(req, res, next){
+		passport.authenticate('local', function(err, student, info){
+			if(err){return next(err);}
+			if(!student) {
+				console.log('Incorrect student pass combo!');
+				return res.json({err: 'Invalid email and/or password combination!'});
+			}
+			req.logIn(student, function(err){
+				if(err){ return next(err);}
+				console.log('success');
+				console.log(req.isAuthenticated());
+				console.log(req.student);
+				console.log('req session:', req.session);
+				return res.json({data:student});
+			});
+		})(req,res,next);
+	});
+
+	app.post('/logout', function(req,res){
+		console.log('logging out ', req.session.passport.student);
+		req.logOut();
+		console.log('are they still logged in?', req.isAuthenticated());
+		res.send(200);
+	})
+
+	//route to test if the user is logged in or not
+	app.get('/loggedin', function(req, res){
+		console.log('loggedin?', req.isAuthenticated());
+		return res.json(req.isAuthenticated() ? req.student : null);
+	});
 }
