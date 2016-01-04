@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp');
 
-myApp.controller('studentController', function ($scope, studentFactory) {
+myApp.controller('studentController', function ($scope, $location, studentFactory) {
         studentFactory.studentIndex (function (data) {
             $scope.students = data;
         })
@@ -30,11 +30,12 @@ myApp.controller('studentController', function ($scope, studentFactory) {
             //call factory
             studentFactory.loginStudent(input, function(response){
                 if(response.err){
+                    $scope.error = {};
                     console.log('there was an error!');
                     $scope.error.message = response.err;
                 } else {
                     console.log('no error, log them in');
-                    $location.url('/info');
+                    $location.url('#/');
                 }
             })
             $scope.studentData = {};

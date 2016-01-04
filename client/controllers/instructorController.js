@@ -41,6 +41,7 @@ myApp.controller('instructorController', function ($scope, instructorFactory) {
     $scope.loginInstructor = function(input){
         instructorFactory.loginInstructor(input, function(response){
             if(response.err){
+                $scope.error = {};
                 console.log('there was an error!');
                 $scope.error.message = response.err;
             } else {
