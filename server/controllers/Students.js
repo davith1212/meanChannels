@@ -47,6 +47,9 @@ module.exports = (function(){
 					}
 				})
 			})
+		},
+		addStudent: function (req, res) {
+			
 		}
 	}
 })();

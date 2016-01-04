@@ -14,6 +14,7 @@ module.exports = function (app) {
 	app.get('/studentIndex', students.show)
 	app.post('/createStudent', students.add)
 	app.post('/removeStudent', students.remove)
+	app.post('/studentToClass', students.addStudent)
 	//Classes
 	app.get('/classIndex', classes.show)
 	app.post('/addClass', classes.add)

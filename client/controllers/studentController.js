@@ -39,4 +39,11 @@ myApp.controller('studentController', function ($scope, studentFactory) {
             })
             $scope.studentData = {};
         }
+        $scope.addStudent = function() {
+            studentFactory.addStudent (function () {
+                studentFactory.addStudentShow (function (data) {
+                    $scope.students = data;
+                })
+            })
+        }
     })
