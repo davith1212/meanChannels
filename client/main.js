@@ -33,6 +33,15 @@ myApp.config(function ($routeProvider) {
             templateUrl: 'partials/populateData.html',
             controller: 'classController'
         })
+        .when('/studentVideo', {
+            templateUrl: 'partials/studentVideo.html',
+            controller: 'studentVideoController',
+            title: 'Instructor Video'
+        })
+        .when('/studentVideoTest', {
+            templateUrl: 'partials/studentVideoTest.html',
+            controller: 'studentVideoControllerTest'
+        })
         .otherwise({
             redirectTo: '/'
         }) 

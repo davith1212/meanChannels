@@ -5,7 +5,7 @@ var payments = require('./../controllers/Payments.js');
 var students = require('./../controllers/Students.js');
 
 module.exports = function (app) {
-	app.get('/applyIndex', instructors.show)
+	app.get('/instructorIndex', instructors.show)
 	app.post('/createApplicant', instructors.add)
 	app.post('/removeData', payments.remove)
 	app.post('/getPayment', payments.add)

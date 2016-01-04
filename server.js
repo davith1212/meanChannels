@@ -90,3 +90,17 @@ var rtc = easyrtc.listen(app, socketServer, null, function(err, rtcRef) {
         appObj.events.defaultListeners.roomCreate(appObj, creatorConnectionObj, roomName, roomOptions, callback);
     });
 });
+// var roomInstructors = {};
+// socketServer.sockets.on('connection', function(socket){
+
+//     socket.on('instructorCheck', function(roomName){
+//         socket.join(roomName);
+//         if (roomInstructors.roomName !== undefined){
+//             socket.emit('instructorJoin', roomInstructors.roomName);
+//         }
+//     });
+//     socket.on('instructorJoin', function(roomName, instructorID){
+//         roomInstructors.roomName = instructorID;
+//         io.to(roomName).emit('instructorJoin', instructorID)
+//     })
+// })
