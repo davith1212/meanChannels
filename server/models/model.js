@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var bcrypt   = require('bcrypt');
 
 var ApplicantSchema = new mongoose.Schema ({
     first_name: String,
@@ -43,6 +44,14 @@ var ClassSchema = new mongoose.Schema ({
     description: String,
     size: Number
 })
+
+// checking if password is valid
+StudentSchema.methods.validPassword = function(password) {
+    console.log(password, 'in model student');
+    console.log(this.password, 'password in database');
+
+    return bcrypt.compareSync(password, this.password);
+}
 
 var xclass = mongoose.model('class', ClassSchema);
 
