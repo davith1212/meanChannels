@@ -9,7 +9,7 @@ passport.use(new passportLocal.Strategy(
     passwordField: 'password'
   },
   function(username, password, done){
-    Instructor.findOne({ email: username },
+    Student.findOne({ email: username },
       function (err, user) {
         console.log('STUDENT passpot', user);
         
