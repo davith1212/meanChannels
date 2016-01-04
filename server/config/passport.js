@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
 var passport = require('passport');
 var passportLocal = require('passport-local');
-var student = mongoose.model('student');
+var Student = mongoose.model('Student');
 //teach passport how to verify local studentEmail and credentials
 passport.use(new passportLocal.Strategy(
   { usernameField: 'email',
     passwordField: 'password'
   },
   function(username, password, done){
-    student.findOne({ email: username},
+    Student.findOne({ email: username},
       function (err, user) {
         if (err) { return done(err); }
         if (!user) { return done(null, false); }
@@ -29,7 +29,7 @@ passport.deserializeUser(function(id, done){
   console.log('deserializing');
   // done(null, {id:  id, name: id});
   console.log(id);
-  student.findOne({_id: id}, function(err, user){
+  Student.findOne({_id: id}, function(err, user){
     console.log(user);
     done(null, user);
   });
