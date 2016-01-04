@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html ng-app='myApp' ng-controller="mainController">
+<html ng-app='myApp'>
 <head>
-	<title></title>
+	<title ng-bind="title"></title>
     <!-- Style Sheets -->
     <link rel="stylesheet" href="/static/css/styles.css">
     <link rel="stylesheet" ng-href="/static/css/{{ css }}.css">
     <!-- BootStrap -->
+    <!-- Jquery? -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- Angular -->
-    <script type="text/javascript" src="/static/angular.js"></script>
-    <script type="text/javascript" src="/static/angular-route.js"></script>
+    <script type="text/javascript" src="/static/js/angular.js"></script>
+    <script type="text/javascript" src="/static/js/angular-route.js"></script>
+    <script type="text/javascript" src="/main.js"></script>
 
-    <!-- Jquery? -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 
     <!-- For Chat Rooms -->
     <script type="text/javascript" src="/easyrtc/easyrtc.js"></script>
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="js/chatroom.js"></script>
+    <script type="text/javascript" src="static/js/chatroom.js"></script>
 
     <!-- Factories -->
     <script type="text/javascript" src="/factories/applyFactory.js"></script>
@@ -26,8 +28,7 @@
     <script type="text/javascript" src="/factories/studentFactory.js"></script>
 
     <!-- Controllers -->
-    <script type="text/javascript" src="/controllers/applyConroller.js"></script>
-    <script type="text/javascript" src="/controllers/mainController.js"></script>
+    <script type="text/javascript" src="/controllers/applyController.js"></script>
     <script type="text/javascript" src="/controllers/paymentController.js"></script>
     <script type="text/javascript" src="/controllers/studentController.js"></script>
 

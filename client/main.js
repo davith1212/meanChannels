@@ -3,24 +3,30 @@ var myApp = angular.module('myApp', ['ngRoute']);
 myApp.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'static/partials/info.html',
-            // controller:
-           title: 'Instructor Login'
+            templateUrl: 'partials/info.html',
+        	title: 'Instructor Login',
+        	css:'main'
         })
         .when('/students', {
-            templateUrl: 'static/partials/students.html'
+            templateUrl: 'partials/students.html',
+        	title: 'Students',
+        	controller:'studentController',
+        	css:'student'
         })            
         .when('/instructor', {
-            templateUrl: 'static/partials/instructors.html'
+            templateUrl: 'partials/instructors.html'
         })
         .when('/apply', {
-            templateUrl: 'static/partials/apply.html'
+            templateUrl: 'partials/apply.html',
+            controller: 'applyController',
+            title:'Apply Now!'
         })
         .when('/stripe', {
-            templateUrl: 'static/partials/payment.html'
+            templateUrl: 'partials/payment.html',
+            controller: 'paymentController'
         })
         .when('/studentHome', {
-            templateUrl: 'static/partials/student_Home.html'
+            templateUrl: 'partials/student_Home.html'
         })
         .otherwise({
             redirectTo: '/'
@@ -32,8 +38,8 @@ myApp.run(['$location', '$rootScope', function($location, $rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
 
         if (current.hasOwnProperty('$$route')) {
-
             $rootScope.title = current.$$route.title;
+            $rootScope.css = current.$$route.css;
         }
     });
 }]);

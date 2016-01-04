@@ -1,5 +1,3 @@
-
-
 var activeBox = -1;  // nothing selected
 var aspectRatio = 4/3;  // standard definition video aspect ratio
 var maxCALLERS = 3;
@@ -723,5 +721,3 @@ function appInit() {
         },20);
     });
 }
-
-
