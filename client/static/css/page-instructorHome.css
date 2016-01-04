@@ -1,0 +1,32 @@
+#title{
+		font-weight: lighter;
+		font-style: italic;
+	}
+	span{
+		font-weight: normal;
+	}
+	blockquote{
+		font-size: 20px;
+		font-style: italic;
+	}
+	#classInfo{
+		height: 500px;
+		overflow: scroll;
+	}
+	.instClass{
+		padding: 10px;
+		margin-bottom: 5px;
+	}
+		.instClass p{
+			margin-left: 10px;
+			font-size: 14px;
+		}
+		.instClass .desc{
+			margin-left: 20px;
+			font-style: italic;
+		}
+	#nextClassPortal{
+		margin-top: 45px;
+		margin-left: 40px;
+		padding: 20px;
+	}

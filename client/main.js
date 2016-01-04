@@ -4,30 +4,43 @@ myApp.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'partials/info.html',
-        	title: 'Instructor Login',
-        	css:'main'
+            title: 'ifART',
+            css:'info'
         })
         .when('/students', {
             templateUrl: 'partials/students.html',
         	title: 'Students',
         	controller:'studentController',
-        	css:'student'
+        	css:'students'
         })            
         .when('/instructor', {
-            templateUrl: 'partials/instructors.html'
+            templateUrl: 'partials/instructors.html',
+            title: 'Instructors',
+            css: 'instructors'
         })
         .when('/apply', {
             templateUrl: 'partials/apply.html',
             controller: 'instructorController',
             title:'Apply Now!'
+            css:'apply'
         })
         .when('/stripe', {
             templateUrl: 'partials/payment.html',
-            controller: 'paymentController'
+            controller: 'paymentController',
+            title:'Payment',
+            css:'payment'
         })
         .when('/studentHome', {
             templateUrl: 'partials/studentHome.html',
-            controller: 'classController'
+            controller: 'classController',
+            title:'Home - student',
+            css:'studentHome'
+        })
+        .when('/instructorHome', {
+            templateUrl: 'partials/instructorHome.html',
+            controller: 'instructorController',
+            title:'Home - instructor',
+            css:'instructorHome'
         })
         .when('/pop', {
             templateUrl: 'partials/populateData.html',

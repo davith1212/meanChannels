@@ -1,32 +1,36 @@
-<div class="row">  
-  <div class="col-md-5 col-md-offset-1">
-      <h3 id='pay'>How do you want to pay?</h3>
-  </div>
-  <div class="col-md-5">
-          <p class="total" ng-repeat='payment in payments | orderBy : "created_at" :true' ng-if=' $index < 1'>Your final total is ${{payment.payment}}</p>
-    <div class="box"> 
-      <form >
-          <p><input class='with-gap' ng-model='newPayment.payment' name="group1" type="radio" id="test1" value="60"/>
-          <label for="test1">Monthly: $60/month</label></p>
-          <p><input class='with-gap' ng-model='newPayment.payment' name="group1" type="radio" id="test2" value="100"/>
-          <label for="test2">10 Classes: $100</label></p>
-          <p><input class="with-gap" ng-model='newPayment.payment' name="group1" type="radio" id="test3" value="15"/>
-          <label for="test3">Drop-in: $15/one class</label></p>
-          <button type="submit" ng-click='getPayment()' class="pay_select btn ">Select Option</button>
-      </form>
-          <a ng-click='removeData()'>
-          <form id='pay_btn'>
-            <script ng-repeat='payment in payments | orderBy : "created_at" :true' ng-if=' $index < 1'
-              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-              data-amount="{{payment.payment}}00"
-              data-name="ifArt"
-              data-description="Your final total is ${{payment.payment}}"
-              data-image=""
-              data-locale="auto">
-            </script>
-          </form>
-          </a>
+<div class="container">
+  <div id="main" class="row grey lighten-4 z-depth-2" ng-controller='paymentController'>  
+    <div class="col l5">
+        <h3 id='pay'>How do you want to pay?</h3>
+    </div>
+    <div id="payOptions" class="col l5 offset-l1 grey lighten-5 z-depth-2">
+            <p id="total" class="total" ng-repeat='payment in payments | orderBy : "created_at" :true' ng-if=' $index < 1'>Your final total is ${{payment.payment}}</p>
+      <div class="box"> 
+        <form >
+            <p><input class="with-gap" ng-model='newPayment.payment' name="group1" type="radio" id="test3" value="15"/>
+            <label for="test3">Drop-in: $15/one class</label></p>
+            <p><input class='with-gap' ng-model='newPayment.payment' name="group1" type="radio" id="test2" disabled="disabled" value="100"/>
+            <label for="test2">10 Classes: $100</label></p>
+            <p><input class='with-gap' ng-model='newPayment.payment' name="group1" type="radio" id="test1" disabled="disabled" value="60"/>
+            <label for="test1">Monthly: $60/month</label></p>
+            <button id="selectBtn" type="submit" ng-click='getPayment()' class="pay_select btn ">Select Option</button>
+        </form>
+        <a ng-click='removeData()'>
+        <div id="payWCard">
+            <form id='pay_btn'>
+              <script ng-repeat='payment in payments | orderBy : "created_at" :true' ng-if=' $index < 1'
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+                data-amount="{{payment.payment}}00"
+                data-name="ifArt"
+                data-description="Your final total is ${{payment.payment}}"
+                data-image=""
+                data-locale="auto">
+              </script>
+            </form>
+        </div>
+        </a>
+      </div>
     </div>
   </div>
 </div>

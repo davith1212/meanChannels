@@ -1,0 +1,13 @@
+#main{
+		padding: 30px;
+	}
+	h3{
+		font-weight: lighter;
+	}
+	span{
+		font-style: italic;
+		font-weight: normal;
+	}
+	#class_type_desc{
+		margin-top: 15px;
+	}

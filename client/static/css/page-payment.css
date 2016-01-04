@@ -1,0 +1,22 @@
+#main{
+        padding: 25px 60px;
+    }
+    #pay{
+        font-weight: lighter;
+        font-style: italic;
+        margin-right: 15px;
+    }
+    #payOptions{
+        padding: 15px 0px 20px 60px;
+    }
+    #total{
+        font-weight: normal;
+        font-size: 17px;
+        margin-left: 15px;
+    }
+    #selectBtn{
+        margin: 15px 0px 10px 15px;
+    }
+    #payWCard{
+        margin-left: 45px;
+    }
