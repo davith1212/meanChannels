@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+	<title ng-bind="title"></title>
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" ng-href="/static/css/page-{{ css }}.css">
+    <!-- BootStrap -->
+    <!-- Jquery? -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Angular -->
+    <script type="text/javascript" src="/static/js/angular.js"></script>
+    <script type="text/javascript" src="/static/js/angular-route.js"></script>
+    <script type="text/javascript" src="/main.js"></script>
+
+
+
+    <!-- For Chat Rooms -->
+    <script type="text/javascript" src="/easyrtc/easyrtc.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="static/js/chatroom.js"></script>
+
+    <!-- Factories -->
+    <script type="text/javascript" src="/factories/applyFactory.js"></script>
+    <script type="text/javascript" src="/factories/classFactory.js"></script>
+    <script type="text/javascript" src="/factories/paymentFactory.js"></script>
+    <script type="text/javascript" src="/factories/studentFactory.js"></script>
+
+    <!-- Controllers -->
+    <script type="text/javascript" src="/controllers/applyController.js"></script>
+    <script type="text/javascript" src="/controllers/classController.js"></script>
+    <script type="text/javascript" src="/controllers/paymentController.js"></script>
+    <script type="text/javascript" src="/controllers/studentController.js"></script>
+
+    <style type="text/css">
+    	h3, h5{
+    		font: papercraft;
+    	}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#/">ifART</a>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/info">Home</a></li>
+        <li><a href="#/students">Student Login</a></li>
+        <li><a href="#/instructor">Instructor Login</a></li>
+        <li><a href="#/apply">Teach</a></li>
+        <li><a href="#/stripe">stripe</a></li>
+        <li><a href="#/studentHome">Student Home</a></li>
+        <li><a href="#/pop">Populate data</a></li>
+      </ul>
+    </div>
+</nav>    
+        <div id='view_box' ng-view=''></div>
+</body>
+</html>
