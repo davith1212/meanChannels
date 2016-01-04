@@ -6,14 +6,14 @@ myApp.controller('studentController', function ($scope, studentFactory) {
         })
         $scope.createStudent = function () {
             var newStudent = {
-                firstName: $scope.newStudent.firstName,
-                lastName: $scope.newStudent.lastName,
-                email: $scope.newStudent.email,
-                password: $scope.newStudent.password
+                firstName:  $scope.newStudent.firstName,
+                lastName:   $scope.newStudent.lastName,
+                email:      $scope.newStudent.email,
+                password:   $scope.newStudent.password
             }
             studentFactory.createStudent (newStudent, function () {
                 studentFactory.studentIndex (function (data) {
-                    $scope.newStudent ={},
+                    $scope.newStudent ={};
                     $scope.students = data;
                 })
             })
@@ -26,10 +26,9 @@ myApp.controller('studentController', function ($scope, studentFactory) {
             })
         }
         $scope.loginStudent = function(input){
-            console.log('trying to login student with', input);
+            console.log('inStuCtrl');
             //call factory
             studentFactory.loginStudent(input, function(response){
-                console.log(response);
                 if(response.err){
                     console.log('there was an error!');
                     $scope.error.message = response.err;

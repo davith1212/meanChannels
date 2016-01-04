@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
-var applicants = mongoose.model('applicant');
+var instructors = mongoose.model('instructor');
 var Payments = mongoose.model('payment');
 var Students = mongoose.model('student');
+var Instructors = mongoose.model('instructor');
 var Classes = mongoose.model('class');
 var bcrypt = require('bcrypt');
 var salt = bcrypt.genSaltSync(10);
@@ -9,8 +10,8 @@ var salt = bcrypt.genSaltSync(10);
 module.exports = (function () {
 
 	return {
-		applyIndex: function (req, res) {
-			applicants.find({}, function (err, output) {
+		instructorIndex: function (req, res) {
+			instructors.find({}, function (err, output) {
 				if(err) {
 					console.log(err);
 				}
@@ -19,8 +20,9 @@ module.exports = (function () {
 				}
 			})
 		},
-		createApplicant: function (req, res) {
-			var applicant = new applicants ({
+		createInstructor: function (req, res) {
+			req.body.password = bcrypt.hashSync(req.body.password, salt);
+			var newInstructor = new Instructors ({
 			    first_name: req.body.first_name,
                 last_name: req.body.last_name,
                 address1: req.body.address1,
@@ -45,12 +47,12 @@ module.exports = (function () {
                 experience: req.body.experience,
                 references: req.body.references
 			})
-			applicant.save(function(err) {
+			newInstructor.save(function(err) {
 				if(err) {
 					console.log(err);
 				}
 				else {
-					console.log(applicant,'Application Added!');
+					console.log(newInstructor,'instructor Added!');
 					res.json(200);
 				}
 			})

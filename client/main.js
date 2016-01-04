@@ -18,7 +18,7 @@ myApp.config(function ($routeProvider) {
         })
         .when('/apply', {
             templateUrl: 'partials/apply.html',
-            controller: 'applyController',
+            controller: 'instructorController',
             title:'Apply Now!'
         })
         .when('/stripe', {

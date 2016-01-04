@@ -8,15 +8,12 @@ passport.use(new passportLocal.Strategy(
     passwordField: 'password'
   },
   function(username, password, done){
-  console.log('passport studentEmail received', username);
-  console.log('passport password received', password);
-  student.findOne({ email: username},
-    function (err, user) {
-  console.log('AM I IN', user);
-      if (err) { return done(err); }
-      if (!user) { return done(null, false); }
-      if (!user.validPassword(password)){return done(null, false)}
-      return done(null, user); //there is a record
+    student.findOne({ email: username},
+      function (err, user) {
+        if (err) { return done(err); }
+        if (!user) { return done(null, false); }
+        if (!user.validPassword(password)){return done(null, false)}
+        return done(null, user); //there is a record
     });
 }));
 

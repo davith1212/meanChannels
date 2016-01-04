@@ -16,8 +16,9 @@ var myApp = angular.module('myApp');
         factory.loginStudent = function(input, callback){
             student = {};
             error = {};
+            console.log('inStuFctry');
             console.log('factory trying to log in with', input);
-            $http.post('/login', input).then(function(response){
+            $http.post('/loginStudent', input).then(function(response){
                 console.log(response);
                 if(response.data.err){
                     error.message = response.data.err;
@@ -30,7 +31,7 @@ var myApp = angular.module('myApp');
             })
         }        
         factory.removeStudent = function (callback) {
-            $http.post('/removePost').success(function(student) {
+            $http.post('/removeStudent').success(function(student) {
                 callback(student);
             })
         }

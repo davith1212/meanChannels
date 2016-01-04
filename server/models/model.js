@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt');
 
-var ApplicantSchema = new mongoose.Schema ({
+var InstructorSchema = new mongoose.Schema ({
     first_name: String,
     last_name: String,
     address1: String,
@@ -26,6 +26,7 @@ var ApplicantSchema = new mongoose.Schema ({
     experience: String,
     references: String,
 })
+
 var PaymentSchema = new mongoose.Schema ({
     payment: Number
 })
@@ -46,10 +47,12 @@ var ClassSchema = new mongoose.Schema ({
 })
 
 // checking if password is valid
-StudentSchema.methods.validPassword = function(password) {
-    console.log(password, 'in model student');
-    console.log(this.password, 'password in database');
+InstructorSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+}
 
+StudentSchema.methods.validPassword = function(password) {
+    console.log('inStuMOdelvalidpass');
     return bcrypt.compareSync(password, this.password);
 }
 
@@ -57,6 +60,6 @@ var xclass = mongoose.model('class', ClassSchema);
 
 var student = mongoose.model('student', StudentSchema);
 
-var payment = mongoose.model('payment', PaymentSchema);
+var instructor = mongoose.model('instructor', InstructorSchema);
 
-var applicant = mongoose.model('applicant', ApplicantSchema);
+var payment = mongoose.model('payment', PaymentSchema);

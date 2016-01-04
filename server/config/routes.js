@@ -1,11 +1,12 @@
 var applicants = require('./../controllers/controllers.js');
+var passport = require('passport');
 
 module.exports = function (app) {
-	app.get('/applyIndex', function (req, res) {
-		applicants.applyIndex (req, res);
+	app.get('/instructorIndex', function (req, res) {
+		applicants.instructorIndex (req, res);
 	})
-	app.post('/createApplicant', function (req, res) {
-		applicants.createApplicant (req, res);
+	app.post('/createInstructor', function (req, res) {
+		applicants.createInstructor (req, res);
 	})
 	app.post('/getPayment', function (req, res) {
 		applicants.getPayment (req, res);
@@ -36,7 +37,9 @@ module.exports = function (app) {
 	})
 
 	//local auth route
-	app.post('/login', function(req, res, next){
+	// STUDENTS
+	app.post('/loginStudent', function(req, res, next){
+		console.log('inStuRtoues');
 		passport.authenticate('local', function(err, student, info){
 			if(err){return next(err);}
 			if(!student) {
@@ -54,7 +57,7 @@ module.exports = function (app) {
 		})(req,res,next);
 	});
 
-	app.post('/logout', function(req,res){
+	app.post('/logoutStudent', function(req,res){
 		console.log('logging out ', req.session.passport.student);
 		req.logOut();
 		console.log('are they still logged in?', req.isAuthenticated());
@@ -62,8 +65,40 @@ module.exports = function (app) {
 	})
 
 	//route to test if the user is logged in or not
-	app.get('/loggedin', function(req, res){
+	app.get('/loggedinStudent', function(req, res){
 		console.log('loggedin?', req.isAuthenticated());
 		return res.json(req.isAuthenticated() ? req.student : null);
+	});
+
+	// INSTRUCTORS
+	app.post('/loginInstructor', function(req, res, next){
+		passport.authenticate('local', function(err, instructor, info){
+			if(err){return next(err);}
+			if(!instructor) {
+				console.log('Incorrect instructor pass combo!');
+				return res.json({err: 'Invalid email and/or password combination!'});
+			}
+			req.logIn(instructor, function(err){
+				if(err){ return next(err);}
+				console.log('success');
+				console.log(req.isAuthenticated());
+				console.log(req.instructor);
+				console.log('req session:', req.session);
+				return res.json({data:instructor});
+			});
+		})(req,res,next);
+	});
+
+	app.post('/logoutInstructor', function(req,res){
+		console.log('logging out ', req.session.passport.instructor);
+		req.logOut();
+		console.log('are they still logged in?', req.isAuthenticated());
+		res.send(200);
+	})
+
+	//route to test if the user is logged in or not
+	app.get('/loggedinInstructor', function(req, res){
+		console.log('loggedin?', req.isAuthenticated());
+		return res.json(req.isAuthenticated() ? req.instructor : null);
 	});
 }

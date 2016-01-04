@@ -1,24 +1,25 @@
 <div class="container">	
-	<div class="row">
+	<div class="row" ng-controller='instructorController'>
 		<div id="login" class="col-md-5">
 			<h3>Instructor Login</h3>
-		    <form>
-		      <div class="row">
-		        <div class="col-md-10">
-		          <input id="email" type="email" class="form-control">
-		          <label for="email">Email</label>
-		        </div>
-		      </div>
-		      <div class="row">
-		        <div class="col-md-10">
-		          <input id="password" type="password" class="form-control">
-		          <label for="password">Password</label>
-		        </div>
-		      </div>
-		      <button class="btn" type="submit" name="action">Submit</button>
-		    </form>
-		</div>
-		<div id="apply_instructor" class="col-md-5">
+			<form ng-submit='loginInstructor(instructorData)'>
+				<div ng-if='error.message'><span ng-bind='error.message'></span></div>
+				<div class="row">
+					<div class="col-md-10">
+						<input id="email" type="email" class="form-control" ng-model='instructorData.email'>
+						<label for="email">Email</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-10">
+						<input id="password" type="password" class="form-control" ng-model='instructorData.password'>
+						<label for="password">Password</label>
+					</div>
+				</div>
+				<button class="btn" type="submit" name="action">Submit</button>
+			</form>
+			</div>
+			<div id="apply_instructor" class="col-md-5">
 			<div id='apply_photo' class="col-md-9 col-md-offset-1"></div>
 			<h4 class="col-md-11 col-md-offset-1">Want to become an ifArt instructor?</h4>
 			<a href="#/apply"><button class="btn col-md-offset-4 ">Apply Now!</button></a>

@@ -2,40 +2,40 @@
 	<h3>Apply now to join the ifArt team!</h3>
 	<p>Take the first step by completing the following application, and we will get in touch with you in 5-7 days.</p>
 	<div class="row">
-		<form>
+		<form ng-controller='instructorController'>
 		<div id="personal" class="col-md-4 col-md-offset-1">
 			<div class="row">
 			    <div class="form-group col-md-10">
 			       <label for="first_name">First Name</label>
-			       <input ng-model="newApplicant.first_name" type="text" class="form-control">
+			       <input ng-model="newInstructor.first_name" type="text" class="form-control">
 			    </div>
 			</div>
 			<div class="row">
 			    <div class="form-group col-md-10">
 			       <label for="last_name">Last Name</label>
-			       <input ng-model="newApplicant.last_name" type="text" class="form-control">
+			       <input ng-model="newInstructor.last_name" type="text" class="form-control">
 			    </div>
 			</div>
 			<div class="row">
 			    <div class="form-group col-md-10">
 			       <label for="address1">Address 1</label>
-			       <input ng-model="newApplicant.address1" type="text" class="form-control">
+			       <input ng-model="newInstructor.address1" type="text" class="form-control">
 			    </div>
 			</div>
 			<div class="row">
 			    <div class="form-group col-md-10">
 			       <label for="address2">Address 2</label>
-			       <input ng-model="newApplicant.address2" type="text" placeholder="Suite, Apt, Bldg, etc." class="form-control">
+			       <input ng-model="newInstructor.address2" type="text" placeholder="Suite, Apt, Bldg, etc." class="form-control">
 			    </div>
 			</div>
 			<div class="row">
 			    <div class="form-group col-md-5">
 			       <label for="city">City</label>
-			       <input ng-model="newApplicant.city" type="text" class="form-control">
+			       <input ng-model="newInstructor.city" type="text" class="form-control">
 			  	</div>
 			  	<div class="form-group col-md-4">
 					<label>State</label>
-			        <select ng-model='newApplicant.state' class="form-control">
+			        <select ng-model='newInstructor.state' class="form-control">
 				    	<option value="" disabled selected>Choose State</option>
 			       		<optgroup label="US States">
 					        <option value="AL">AL</option>
@@ -104,25 +104,25 @@
 		    <div class="row">
 			    <div class="form-group col-md-6">
 			       <label for="zip">Zip Code</label>
-			       <input ng-model="newApplicant.zip" type="number" class="form-control">
+			       <input ng-model="newInstructor.zip" type="number" class="form-control">
 			    </div>
 		    </div>
 		    <div class="row">
 			    <div class="form-group col-md-10">
 			       <label for="phone">Phone Number</label>
-			       <input ng-model="newApplicant.phone" type="text" class="form-control">
+			       <input ng-model="newInstructor.phone" type="text" class="form-control">
 			    </div>
 		    </div>
 		    <div class="row">
 			    <div class="form-group col-md-10">
 			       <label for="email">Email</label>
-			       <input ng-model="newApplicant.email" type="email" class="form-control">
+			       <input ng-model="newInstructor.email" type="email" class="form-control">
 			    </div>
 		    </div>
 		    <div class="row">
 			    <div class="form-group col-md-10">
 			       <label for="password">Password</label>
-			       <input ng-model="newApplicant.password" type="password" class="form-control">
+			       <input ng-model="newInstructor.password" type="password" class="form-control">
 			    </div>
 		    </div>
 		    <div class="row">
@@ -134,7 +134,7 @@
 		    <div class="row">
 			    <div class="form-group col-md-10">
 			       <label for="bday">Birthday</label>
-			       <input ng-model="newApplicant.bday" type="date" class="datepicker form-control">
+			       <input ng-model="newInstructor.bday" type="date" class="datepicker form-control">
 			    </div>
 		    </div>
 		</div>
@@ -143,7 +143,7 @@
 			<div class="row">
 			    <div class="form-group col-md-10">
 			       <label for="style">Teaching Style</label>
-			       <select class="form-control" ng-model='newApplicant.class_type'>
+			       <select class="form-control" ng-model='newInstructor.class_type'>
 			       		<option value="" disabled selected>Choose Style</option>
 			       		<option value="bootcamp">Bootcamp</option>
 			       		<option value="pilates">Pilates</option>
@@ -158,16 +158,16 @@
 			    <div class="row">
 				    <div class="form-group col-md-10">
 				       <label id="class_label" for="class_description">Classes</label>
-				       <textarea ng-model="newApplicant.class_description" class="form-control" rows="3" placeholder="class type and description"></textarea>
+				       <textarea ng-model="newInstructor.class_description" class="form-control" rows="3" placeholder="class type and description"></textarea>
 				    </div>
 			    </div>
 			    <div class="row">
 				    <div class="form-group col-md-10">
 				    	<p>Certified?</p>
 				       	<label for="certified_yes">Yes</label>
-				       	<input ng-model="newApplicant.certified_yes" id="certified_yes" type="checkbox">
+				       	<input ng-model="newInstructor.certified_yes" id="certified_yes" type="checkbox">
 				       	<label for="certified_no">No</label>
-				       	<input ng-model="newApplicant.certified_no" id="certified_no" type="checkbox">
+				       	<input ng-model="newInstructor.certified_no" id="certified_no" type="checkbox">
 				    </div>
 			    </div>
 	<!-- - - - - - - SHOWS IF CERTIFIED CHECKED YES - - - - - - - -->
@@ -175,19 +175,19 @@
 				    <div class="row">
 				    	<div class="form-group col-md-10">
 				    		<label for="dateDertified">Date certification received</label>
-				    		<input ng-model="newApplicant.dateCertified" type="date" class="datepicker form-control">
+				    		<input ng-model="newInstructor.dateCertified" type="date" class="datepicker form-control">
 				    	</div>
 				    </div>
 				    <div class="row">
 				    	<div class="form-group col-md-10">
 				    		<label for="cert_type">Certification Type</label>
-				    		<input ng-model="newApplication.cert_type" type="text" class="form-control">
+				    		<input ng-model="newInstructor.cert_type" type="text" class="form-control">
 				    	</div>
 				    </div>
 				    <div class="row">
 				    	<div class="form-group col-md-10">
 				    		<label for="training_school">School or Teacher Training attended</label>
-				    		<input ng-model="newApplicant.training_school" type="text" class="form-control">
+				    		<input ng-model="newInstructor.training_school" type="text" class="form-control">
 				    	</div>
 				    </div>
 				</div>
@@ -196,32 +196,32 @@
 			    	<div class="form-group col-md-10">
 			    		<p>Currently teaching?</p>
 			    		<label for="currently_teaching_yes">Yes</label>
-			    		<input ng-model="newApplicant.currently_teaching_yes" id="currently_teaching_yes" type="checkbox">
+			    		<input ng-model="newInstructor.currently_teaching_yes" id="currently_teaching_yes" type="checkbox">
 			    		<label for="currently_teaching_no">No</label>
-			    		<input ng-model="newApplicant.currently_teaching_no" id="currently_teaching_no" type="checkbox">
+			    		<input ng-model="newInstructor.currently_teaching_no" id="currently_teaching_no" type="checkbox">
 			    	</div>
 			    </div>
 			    <div class="row">
 			    	<div class="form-group col-md-10">
 			    		<label for="time_teaching">How long have you been teaching?</label>
-			    		<input ng-model="newApplicant.time_teaching" type="text" class="form-control">
+			    		<input ng-model="newInstructor.time_teaching" type="text" class="form-control">
 			    	</div>
 			    </div>
 			    <div class="row">
 			    	<div class="form-group col-md-10">
 			    		<label for="experience">Teaching Experience</label>
-			    		<textarea ng-model="newApplicant.experience" class="form-control" rows="3"></textarea>
+			    		<textarea ng-model="newInstructor.experience" class="form-control" rows="3"></textarea>
 			    	</div>
 			    </div>
 			    <div class="row">
 			    	<div class="form-group col-md-10">
 			    		<label for="references">References</label>
-			    		<textarea ng-model="newApplicant.references" class="form-control" rows="3" placeholder="name, phone number, and relation"></textarea>
+			    		<textarea ng-model="newInstructor.references" class="form-control" rows="3" placeholder="name, phone number, and relation"></textarea>
 			    	</div>
 			    </div>
 			</div>
 		</div>
-		<p class="col-md-12"><button type="submit" ng-click='apply()' class="btn-lg col-md-offset-8">Apply!!</button></p>
+		<p class="col-md-12"><button type="submit" ng-click='createInstructor()' class="btn-lg col-md-offset-8">Apply!!</button></p>
 		</form>
 	</div>
 </div>
