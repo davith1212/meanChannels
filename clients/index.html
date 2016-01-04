@@ -30,6 +30,9 @@
             .when('/stripe', {
                 templateUrl: 'static/partials/payment.html'
             })
+            .when('/pop', {
+                templateUrl: ' static/partials/populateData.html'
+            })
             .when('/studentHome', {
                 templateUrl: 'static/partials/student_Home.html'
             })
@@ -95,6 +98,53 @@
             })
         }
         return factory;
+    })
+    myApp.factory('classFactory', function ($http) {
+        var factory = {}
+
+        factory.classIndex = function (callback) {
+            $http.get('/classIndex').success(function (xclass) {
+                callback(xclass);
+            })
+        }
+        factory.addClass = function (data, callback){
+            $http.post('/addClass', data).success( function (xclass) {
+                callback(xclass);
+            })
+        }
+        factory.removeClass = function (callback) {
+            $http.post('/removeClass').success( function (xclass) {
+                callback(xclass);
+            })
+        }
+        return factory;
+    })
+    myApp.controller('classController', function ($scope, classFactory) {
+        classFactory.classIndex( function (data) {
+            $scope.classes = data;
+        })
+        $scope.addClass = function () {
+            var xclass = {
+                name: $scope.xclass.name,
+                date: $scope.xclass.date,
+                type: $scope.xclass.type,
+                description: $scope.xclass.description,
+                size: 20
+            }
+            classFactory.addClass (xclass, function () {
+                classFactory.classIndex (function (data) {
+                    $scope.xclass = {};
+                    $scope.classes = data;
+                })
+            })
+        }
+        $scope.removeClass = function () {
+            classFactory.removeClass (function () {
+                classFactory.classIndex (function (data) {
+                    $scope.classes = data;
+                })
+            })
+        }
     })
     myApp.controller('paymentController', function ($scope, paymentFactory) {
         paymentFactory.paymentIndex (function (data) {
@@ -205,6 +255,7 @@
         <li><a href="#/apply">Teach</a></li>
         <li><a href="#/stripe">stripe</a></li>
         <li><a href="#/studentHome">Student Home</a></li>
+        <li><a href="#/pop">Populate data</a></li>
       </ul>
     </div>
 </nav>    

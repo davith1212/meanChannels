@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var applicants = mongoose.model('applicant');
 var Payments = mongoose.model('payment');
 var Students = mongoose.model('student');
+var Classes = mongoose.model('class');
 
 module.exports = (function () {
 
@@ -126,6 +127,49 @@ module.exports = (function () {
 					}
 					else {
 						console.log('Student Removed!');
+						res.json(200);
+					}
+				})
+			})
+		},
+		classIndex: function (req, res) {
+			Classes.find({}, function (err, output) {
+				if (err) {
+					console.log(err);
+				}
+				else {
+					console.log("Class found!");	
+					res.json(output);
+				}
+			})
+		},
+		addClass: function (req, res) {
+			var xclass = new Classes ({
+				name: req.body.name,
+				date: req.body.date,
+				type: req.body.type,
+				description: req.body.description,
+				size: req.body.size
+			})
+			console.log(xclass);
+			xclass.save(function(err) {
+				if(err) {
+					console.log(err);
+				}
+				else {
+					console.log('Added Class!');
+					res.json(200);
+				}
+			})
+		},
+		removeClass: function (req, res) {
+			Classes.findOne({_id: req.body._id}, function (err, xclass) {
+				Classes.remove({_id: req.body._id}, function (err) {
+					if(err){
+						console.log(err);
+					}
+					else {
+						console.log('Removed , ', req.body.name);
 						res.json(200);
 					}
 				})

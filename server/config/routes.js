@@ -25,4 +25,13 @@ module.exports = function (app) {
 	app.post('/removeStudent', function (req, res) {
 		applicants.removeStudent (req, res); 		
 	})
+	app.get('/classIndex', function (req, res) {
+		applicants.classIndex (req, res);
+	})
+	app.post('/addClass', function (req, res) {
+		applicants.addClass (req, res);
+	})
+	app.post('/removeClass', function (req, res) {
+		applicants.removeClass (req, res);
+	})
 }
