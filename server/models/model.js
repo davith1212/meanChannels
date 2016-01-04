@@ -36,6 +36,16 @@ var StudentSchema = new mongoose.Schema ({
     password: String
 })
 
+var ClassSchema = new mongoose.Schema ({
+    name: String,
+    date: String,
+    type: String,
+    description: String,
+    size: Number
+})
+
+var xclass = mongoose.model('class', ClassSchema);
+
 var student = mongoose.model('student', StudentSchema);
 
 var payment = mongoose.model('payment', PaymentSchema);

@@ -1,0 +1,14 @@
+<div class="container data">
+	<div class="col-md-8 col-md-offset-3" ng-controller='classController'>
+		<form>
+			<select class="btn" ng-model='xclass.name'>
+				<option ng-repeat='class in classes'>{{class.name}}</option>
+			</select>
+			<input type="text" ng-model='xclass.date' placeholder='date'>
+			<input type="text" ng-model='xclass.type' placeholder='type'>
+			<input type="text" ng-model='xclass.description' placeholder='description'>
+			<input type="text" ng-model='xclass.size' placeholder='size'>
+			<input type="submit" ng-click='addClass()'>
+		</form>
+	</div>
+</div>
