@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt');
-var salt = bcrypt.genSaltSync(10);
 var Schema = mongoose.Schema;
 
 var StudentSchema = new mongoose.Schema ({

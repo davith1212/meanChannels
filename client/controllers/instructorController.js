@@ -5,8 +5,6 @@ myApp.controller('instructorController', function ($scope, instructorFactory) {
         $scope.instructors = data;
     })
     $scope.createInstructor = function () {
-        console.log('IN createinstructor');
-
         var newInstructor = {
             first_name:             $scope.newInstructor.first_name,
             last_name:              $scope.newInstructor.last_name,
@@ -33,14 +31,14 @@ myApp.controller('instructorController', function ($scope, instructorFactory) {
             references:             $scope.newInstructor.references
         }
         instructorFactory.createInstructor (newInstructor, function (){
-            console.log('mmmmMMMMMMM front end');
+            console.log('IN createinstructor');
             instructorFactory.instructorIndex (function (data) {
                 $scope.newInstructor = {};
                 $scope.instructors = data;
             })
         })
     }
-    $scope.loginStudent = function(input){
+    $scope.loginInstructor = function(input){
         instructorFactory.loginInstructor(input, function(response){
             if(response.err){
                 console.log('there was an error!');

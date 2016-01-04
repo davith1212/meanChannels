@@ -9,6 +9,7 @@ myApp.factory('instructorFactory', function($http) {
             })
         }
         factory.createInstructor = function (data, callback) {
+            console.log('instru facgtroy', data);
             $http.post('/createInstructor', data).success( function (instructor) {
                 callback(instructor);
             })

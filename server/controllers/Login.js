@@ -2,7 +2,6 @@ var passport = require('passport');
 module.exports = (function(){
 	return{
 		studentLogin: function(req, res, next){
-			console.log('inStuRtoues');
 			passport.authenticate('local', function(err, student, info){
 				if(err){return next(err);}
 				if(!student) {

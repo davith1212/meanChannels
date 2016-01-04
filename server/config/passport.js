@@ -2,16 +2,32 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 var Student = mongoose.model('Student');
+var Instructor = mongoose.model('Instructor');
 //teach passport how to verify local studentEmail and credentials
 passport.use(new passportLocal.Strategy(
   { usernameField: 'email',
     passwordField: 'password'
   },
   function(username, password, done){
-    Student.findOne({ email: username},
+    Instructor.findOne({ email: username },
       function (err, user) {
+        console.log('STUDENT passpot', user);
+        
+        if (!user) {
+          // Instructor.findOne({ email: username },
+          //   function (err, user) {
+          //     console.log('INSTRUCTOR passpot', user);
+          //     if (err) { return done(err); }
+          //     if (!user) { 
+          //       return done(null, false); }
+          //     if (!user.validPassword(password)){return done(null, false)}
+          //     return done(null, user); //there is a record
+          // });
+          return done(null, false); 
+        }
+        
         if (err) { return done(err); }
-        if (!user) { return done(null, false); }
+        
         if (!user.validPassword(password)){return done(null, false)}
         return done(null, user); //there is a record
     });

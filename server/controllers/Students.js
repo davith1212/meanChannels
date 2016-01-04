@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 var Student = mongoose.model('Student');
+var bcrypt = require('bcrypt');
+var salt = bcrypt.genSaltSync(10);
 
 module.exports = (function(){
 	return{

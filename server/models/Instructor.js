@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt');
-var salt = bcrypt.genSaltSync(10);
 var Schema = mongoose.Schema;
 
 var InstructorSchema = new mongoose.Schema ({
@@ -29,6 +28,7 @@ var InstructorSchema = new mongoose.Schema ({
     references: String,
 })
 InstructorSchema.methods.validPassword = function(password) {
+        console.log('inInstMOdelvalidpass');
     return bcrypt.compareSync(password, this.password);
 }
 
