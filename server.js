@@ -13,12 +13,32 @@ var easyrtc = require('easyrtc');  //do not npm install this, must be placed by 
 // Configure Express http Server:
 var app = express();
 
+// middleware
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
+
+// passport & strategies
+var passport = require('passport');
+var passportLocal = require('passport-local');
+
 app.use(express.static(path.join(__dirname, './client')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+app.use(cookieParser());
+app.use(expressSession(
+    { secret: process.env.SESSION_SECRET || 'ifart',
+      resave: false,
+      saveUninitialized: false}
+));
+
+//passport configuration
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Mongoose and routes hooks
 require('./server/config/mongoose.js');
+require('./server/config/passport.js');
 require('./server/config/routes.js')(app);
 var routes_setter = require('./server/config/routes.js');
 routes_setter(app);
