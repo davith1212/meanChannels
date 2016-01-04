@@ -2,6 +2,7 @@ var myApp = angular.module('myApp');
  myApp.controller('classController', function ($scope, classFactory) {
         classFactory.classIndex( function (data) {
             $scope.classes = data;
+            console.log($scope.classes);
         })
         $scope.addClass = function () {
             var xclass = {

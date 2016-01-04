@@ -35,5 +35,10 @@ var myApp = angular.module('myApp');
                 callback(student);
             })
         }
+        factory.addStudent = function (data, callback) {
+            $http.post('/addStudent').success(function(student) {
+                callback(student);
+            })
+        }
         return factory;
     })

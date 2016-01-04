@@ -9,6 +9,7 @@ var StudentSchema = new mongoose.Schema ({
     email: String,
     password: String
 })
+
 // checking if password is valid
 StudentSchema.methods.validPassword = function(password) {
     console.log('inStuMOdelvalidpass');

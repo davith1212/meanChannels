@@ -10,6 +10,7 @@ module.exports = (function(){
 					console.log(err);
 				}
 				else {
+					console.log(output);
 					console.log("Class found!");	
 					res.json(output);
 				}

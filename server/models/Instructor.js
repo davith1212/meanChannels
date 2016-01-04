@@ -27,6 +27,8 @@ var InstructorSchema = new mongoose.Schema ({
     time_teaching: String,
     experience: String,
     references: String,
+    classes: [{type: Schema.Types.ObjectId, ref: 'Class'}]
+
 })
 InstructorSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
