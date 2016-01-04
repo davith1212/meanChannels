@@ -30,5 +30,5 @@ module.exports = function (app) {
 	app.post('/loginInstructor', login.instructorLogin);
 	app.post('/logoutInstructor', login.instructorLogout)
 		//route to test if the user is logged in or not
-	app.get('/loggedinInstructor', );
+	app.get('/loggedinInstructor', login.instructorActive);
 }
