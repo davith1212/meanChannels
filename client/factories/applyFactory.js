@@ -1,6 +1,5 @@
 var myApp = angular.module('myApp');
-
- myApp.factory('applyFactory', function($http) {
+myApp.factory('applyFactory', function($http) {
         var factory = {};
 
         factory.applyIndex = function (callback) {

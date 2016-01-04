@@ -1,0 +1,48 @@
+<div class="container student">
+	<div class="row" id="">
+		<div class="col-md-3 col-md-offset-1 photo_box"><img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAZwAAAAJDRhOGMxMWRjLWViYzctNDdkYy1hYTIyLWM0MDkwYmQ0MzYwZQ.jpg" alt="whoops!" class="img-circle"></div>
+		<div class="col-md-8">
+			<h3 class="col-md-8 welcome">Welcome Student! </h3><span><button class="btn">Account Info</button> <button class="btn">Log Off</button></span>
+			<div class="col-md-11 interest_box">
+				<p><h3>I like:</h3> 
+				<ul>
+					<li>Frolicing in the Autumn mist</li>
+					<li>Really really intense workouts</li>
+					<li>The healthiest of eating</li>
+					<li>Zumba because, I like to dance</li>
+					<li>Crossfit because, I have no idea what I am doing</li>
+					<li>Chasing seagulls, because it's fun huhuhuh</li>
+					<li>picking ripe berries and bring them home for pa to eat</li>
+				</ul></p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-1 past_class">
+			<h3>Clases I've taken:</h3>
+		</div>
+		<div class="col-md-6 upcoming_class">
+			<h3>Class Schedule:</h3>
+			<table>
+				<thead>
+					<tr>
+						<th>Instr.</th>
+						<th>Class</th>
+						<th>Date</th>
+						<th>Desc.</th>
+						<th>Class Size</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="class in classes">
+						<td>{{class.name}}</td>
+						<td>{{class.type}}</td>
+						<td>{{class.date}}</td>
+						<td id='classDate'>{{class.description}}</td>
+						<td><a id='classCheckIn' href="">{{class.size}}</a>/20</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

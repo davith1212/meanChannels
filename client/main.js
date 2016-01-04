@@ -26,7 +26,12 @@ myApp.config(function ($routeProvider) {
             controller: 'paymentController'
         })
         .when('/studentHome', {
-            templateUrl: 'partials/student_Home.html'
+            templateUrl: 'partials/studentHome.html',
+            controller: 'classController'
+        })
+        .when('/pop', {
+            templateUrl: 'partials/populateData.html',
+            controller: 'classController'
         })
         .otherwise({
             redirectTo: '/'

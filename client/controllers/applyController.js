@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp');
 
-    myApp.controller('applyController', function ($scope, applyFactory) {
+myApp.controller('applyController', function ($scope, applyFactory) {
         applyFactory.applyIndex (function (data) {
             $scope.applicants = data;
         })
