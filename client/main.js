@@ -4,7 +4,7 @@ myApp.config(function ($routeProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'partials/info.html',
-            title: 'ifART',
+            title: 'meanCHANNELS',
             css:'info'
         })
         .when('/students', {
